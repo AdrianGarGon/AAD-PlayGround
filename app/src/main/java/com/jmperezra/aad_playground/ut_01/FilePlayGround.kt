@@ -6,11 +6,6 @@ import java.io.BufferedReader
 import java.io.File
 import java.io.FileInputStream
 import java.io.InputStreamReader
-import java.nio.charset.Charset
-import java.nio.file.Files
-import kotlin.io.path.Path
-import kotlin.io.path.createDirectory
-import kotlin.io.path.deleteIfExists
 
 /**
  *
@@ -51,7 +46,7 @@ class FilePlayGround(private val activity: AppCompatActivity) {
         file.appendText("Hola")
     }
 
-    fun readLineByLine2(){
+    fun readLineByLine2() {
         val file = File(activity.filesDir, "aad.txt")
         val lines = file.readLines()
         lines.forEach {
@@ -72,10 +67,6 @@ class FilePlayGround(private val activity: AppCompatActivity) {
         }
     }
 
-    fun writeAtEnd(){
-
-    }
-
     fun deleteFile() {
         val file = File(activity.filesDir, "aad.txt")
         file.delete()
@@ -83,7 +74,7 @@ class FilePlayGround(private val activity: AppCompatActivity) {
 
     fun saveToFile(colors: MutableList<String>) {
         val file = File(activity.filesDir, "aad_colors.txt")
-        if (file.exists()){
+        if (file.exists()) {
             file.writeText("")
         }
         colors.forEach { color ->
@@ -94,25 +85,12 @@ class FilePlayGround(private val activity: AppCompatActivity) {
         }
     }
 
-    fun readFromFile() : MutableList<String>{
-        val colors : MutableList<String> = mutableListOf()
+    fun readFromFile(): MutableList<String> {
         val file = File(activity.filesDir, "aad_colors.txt")
-        if (file.exists()){
-            val fileInputStream = FileInputStream(file)
-            val reader = BufferedReader(InputStreamReader(fileInputStream))
-            var line = reader.readLine()
-            while (line != null) {
-                colors.add(line)
-                line = reader.readLine()
-            }
+        return if (file.exists()) {
+            file.readLines().toMutableList()
+        } else {
+            mutableListOf()
         }
-        return colors
     }
-
-    fun createFolder() {
-        var path = Path(activity.filesDir.canonicalPath + "/images")
-        path.createDirectory()
-        //path.deleteIfExists()
-    }
-
 }
