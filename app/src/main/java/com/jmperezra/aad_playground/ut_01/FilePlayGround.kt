@@ -6,6 +6,10 @@ import java.io.BufferedReader
 import java.io.File
 import java.io.FileInputStream
 import java.io.InputStreamReader
+import kotlin.io.path.Path
+import kotlin.io.path.createDirectory
+import kotlin.io.path.deleteIfExists
+import kotlin.io.path.exists
 
 /**
  *
@@ -20,6 +24,7 @@ class FilePlayGround(private val activity: AppCompatActivity) {
         //appendTextInFile()
         //readFile()
         //readLineByLine()
+        createFolder()
     }
 
     /**
@@ -78,7 +83,7 @@ class FilePlayGround(private val activity: AppCompatActivity) {
             file.writeText("")
         }
         colors.forEach { color ->
-            run {
+            run{
                 file.appendText(color)
                 file.appendText("\n")
             }
@@ -91,6 +96,15 @@ class FilePlayGround(private val activity: AppCompatActivity) {
             file.readLines().toMutableList()
         } else {
             mutableListOf()
+        }
+    }
+
+    fun createFolder() {
+        var path = Path(activity.filesDir.canonicalPath + "/documents")
+        path.deleteIfExists()
+        path.createDirectory()
+        if (path.exists()){
+
         }
     }
 }
