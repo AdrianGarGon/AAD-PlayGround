@@ -6,6 +6,25 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+    <RadioGroup
+        android:id="@+id/option_data_source"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/option_file"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_button_file" />
+
+        <RadioButton
+            android:id="@+id/option_mem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_button_mem" />
+    </RadioGroup>
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

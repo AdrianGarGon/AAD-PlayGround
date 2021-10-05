@@ -32,7 +32,7 @@ class FileDataSource(private val path: String) : DataSource {
 
     override fun delete(id: String) {
         val file = getFile(id)
-        if (file.exists()){
+        if (file.exists()) {
             file.delete()
         }
     }
@@ -47,4 +47,26 @@ class FileDataSource(private val path: String) : DataSource {
     }
 
     private fun getFile(id: String) = File(file, id)
+}
+
+class MemDataSource() : DataSource {
+
+    private val store: MutableMap<String, String> = mutableMapOf()
+
+    override fun save(id: String, content: String) {
+        store.put(id, content)
+    }
+
+    override fun delete(id: String) {
+        store.remove(id)
+    }
+
+    override fun fetch(id: String): String {
+        val value = store.get(id)
+        return value!!
+    }
+
+    override fun fetchAll(): MutableList<String> {
+        return store.keys.toMutableList()
+    }
 }

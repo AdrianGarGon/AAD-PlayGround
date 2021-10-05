@@ -1,6 +1,7 @@
 package com.jmperezra.aad_playground
 
 import android.os.Bundle
+import android.widget.RadioGroup
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
@@ -9,10 +10,7 @@ import com.jmperezra.aad_playground.commons.inheritance.Animal
 import com.jmperezra.aad_playground.commons.inheritance.Cat
 import com.jmperezra.aad_playground.commons.inheritance.InheritancePlayGround
 import com.jmperezra.aad_playground.commons.inheritance.Mammal
-import com.jmperezra.aad_playground.ut_01.DataSource
-import com.jmperezra.aad_playground.ut_01.DataStorageType
-import com.jmperezra.aad_playground.ut_01.FileDataSource
-import com.jmperezra.aad_playground.ut_01.FilePlayGround
+import com.jmperezra.aad_playground.ut_01.*
 import java.io.File
 
 
@@ -34,11 +32,11 @@ class MainActivity : AppCompatActivity() {
     private lateinit var inputNameFileSelected: TextView
     private lateinit var textFileContent: TextView
     private lateinit var actionDeleteFile: AppCompatButton
+    private lateinit var optionDataSource: RadioGroup
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        dataSource = FileDataSource(filesDir.absolutePath + File.separator + folder)
         setupView()
     }
 
@@ -63,6 +61,16 @@ class MainActivity : AppCompatActivity() {
         actionDeleteFile = findViewById(R.id.action_delete_file)
         actionDeleteFile.setOnClickListener {
             deleteFile()
+        }
+        optionDataSource = findViewById(R.id.option_data_source)
+        optionDataSource.setOnCheckedChangeListener { group, checkedId ->
+            run {
+                if (checkedId == R.id.option_file) {
+                    dataSource = FileDataSource(filesDir.absolutePath + File.separator + folder)
+                } else {
+                    dataSource = MemDataSource()
+                }
+            }
         }
     }
 
@@ -120,7 +128,7 @@ class MainActivity : AppCompatActivity() {
         resetInputs()
     }
 
-    private fun resetInputs(){
+    private fun resetInputs() {
         inputNameFile.text = null
         inputContentFile.text = null
         inputNameFileSelected.text = null
@@ -140,7 +148,7 @@ class MainActivity : AppCompatActivity() {
         textFileContent.text = contentFile
     }
 
-    private fun deleteFile(){
+    private fun deleteFile() {
         dataSource.delete(inputNameFileSelected.text.toString())
         showAllFiles()
         resetInputs()

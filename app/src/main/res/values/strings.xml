@@ -7,5 +7,7 @@
     <string name="label_button_explorer">Listar Ficheros</string>
     <string name="label_button_show_content">Mostrar contenido</string>
     <string name="label_button_delete_file">Eliminar fichero</string>
+    <string name="label_button_file">Fichero</string>
+    <string name="label_button_mem">Memoria</string>
 
 </resources>
