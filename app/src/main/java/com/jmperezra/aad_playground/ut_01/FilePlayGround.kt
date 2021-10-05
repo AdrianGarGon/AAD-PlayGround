@@ -6,10 +6,7 @@ import java.io.BufferedReader
 import java.io.File
 import java.io.FileInputStream
 import java.io.InputStreamReader
-import kotlin.io.path.Path
-import kotlin.io.path.createDirectory
-import kotlin.io.path.deleteIfExists
-import kotlin.io.path.exists
+import kotlin.io.path.*
 
 /**
  *
@@ -24,7 +21,7 @@ class FilePlayGround(private val activity: AppCompatActivity) {
         //appendTextInFile()
         //readFile()
         //readLineByLine()
-        createFolder()
+        //createFolder()
     }
 
     /**
@@ -107,4 +104,19 @@ class FilePlayGround(private val activity: AppCompatActivity) {
 
         }
     }
+
+    fun createFileInFolder(){
+        val file = File(activity.filesDir, "/documents/aad.txt")
+        file.createNewFile()
+    }
+
+    fun listFilesInFolder(){
+        val file = File(activity.filesDir, "/documents")
+        val files = file.list()
+        files.forEach {
+            Log.d("@dev", "File: $it")
+        }
+    }
+
+
 }

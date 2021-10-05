@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">AAD-PlayGround</string>
+    <string name="label_name_file">Nombre del fichero</string>
+    <string name="label_content_file">Contenido del fichero</string>
+    <string name="label_select_file">Escribe el nombre del fichero</string>
+    <string name="label_button_save">Guardar</string>
+    <string name="label_button_explorer">Listar Ficheros</string>
+    <string name="label_button_show_content">Mostrar contenido</string>
+    <string name="label_button_delete_file">Eliminar fichero</string>
+
 </resources>
