@@ -10,4 +10,8 @@
     <string name="label_button_file">Fichero</string>
     <string name="label_button_mem">Memoria</string>
 
+    <!-- Shared Preferences Keys -->
+    <string name="preference_file_key">ut02_shared_pref</string>
+    <string name="preference_encrypt_file_key">ut02_shared_pref_encrypt</string>
+
 </resources>

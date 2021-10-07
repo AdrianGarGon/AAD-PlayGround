@@ -1,4 +1,4 @@
-package com.jmperezra.aad_playground.ut_01
+package com.jmperezra.aad_playground.ut01
 
 import java.io.File
 
