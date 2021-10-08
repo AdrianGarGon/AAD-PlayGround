@@ -10,7 +10,7 @@ import com.jmperezra.aad_playground.commons.inheritance.Animal
 import com.jmperezra.aad_playground.commons.inheritance.Cat
 import com.jmperezra.aad_playground.commons.inheritance.InheritancePlayGround
 import com.jmperezra.aad_playground.commons.inheritance.Mammal
-import com.jmperezra.aad_playground.ut_01.*
+import com.jmperezra.aad_playground.ut01.*
 import java.io.File
 
 
