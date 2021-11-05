@@ -77,6 +77,7 @@ class MainActivity : AppCompatActivity() {
     private fun exerciseFiles() {
         //save a list of string in a file.
         initColors()
+
         filePlayGround = FilePlayGround(this)
         filePlayGround.createFolder()
 
